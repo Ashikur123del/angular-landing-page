@@ -1,0 +1,55 @@
+<div class="max-w-5xl mx-auto p-4 md:p-10 font-sans antialiased bg-gray-50/50">
+  
+  <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mb-12">
+    <div class="bg-gradient-to-br from-[#0a192f] via-[#112240] to-[#0a192f] p-8 md:p-10 text-center text-white">
+      <div class="flex flex-col items-center">
+        <img src="c10.png" alt="Guarantee" class="w-16 h-16 md:w-20 md:h-20 mb-4">
+        <h2 class="text-xl md:text-2xl font-bold mb-4">
+          এডুমান সফটওয়্যার ব্যবহার করে ৩০ দিনের মধ্যে সন্তুষ্ট না হলে,<br>
+          <span class="text-yellow-400">সম্পূর্ণ টাকা ফেরত গ্যারান্টি</span>
+        </h2>
+        <div class="bg-blue-950/50 border border-white/20 px-4 py-2 rounded-lg text-xs md:text-sm">
+           ** মানিব্যাক গ্যারান্টি নিতে হলে মূল মূল্যের সাথে শিক্ষার্থী প্রতি ২ (দুই) টাকা যুক্ত হবে
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="space-y-2">
+    @for (section of sections; track section.title) {
+      <div class="grid md:grid-cols-2 gap-4 items-center border-b border-gray-100 pb-16 last:border-0">
+        
+        <div class="flex flex-col space-y-5">
+          <h3 class="text-[#1a237e] text-2xl md:text-3xl font-extrabold tracking-tight">
+            {{ section.title }}
+          </h3>
+          
+          <ul class="space-y-3">
+            @for (feature of section.features; track feature) {
+              <li class="flex items-start gap-3 text-slate-600">
+                <span class="mt-1 text-[#1a237e] text-lg font-bold">⦿</span>
+                <p class="text-base md:text-lg font-medium">{{ feature }}</p>
+              </li>
+            }
+          </ul>
+
+          <p class="text-[#1a237e] font-bold text-lg md:text-xl pt-2">
+            {{ section.priceText }}
+          </p>
+
+          <button class="w-fit bg-gradient-primary cursor-pointer hover:bg-blue-900 text-white px-8 py-2.5 rounded-md font-bold text-sm transition-all shadow-md active:scale-95">
+            {{ section.buttonText }}
+          </button>
+        </div>
+
+        <div class="relative group">
+          <div class="overflow-hidden rounded-2xl shadow-lg border-4 border-white">
+            <img [src]="section.image" [alt]="section.title" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
+</div>
+

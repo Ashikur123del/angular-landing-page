@@ -1,0 +1,25 @@
+<section class="py-15 bg-[#f0f4f9]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      @for (card of cards; track card.title) {
+        <div class="group bg-white p-4 flex flex-col items-center rounded-md shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-blue-100">
+          
+          <div class="relative w-20 h-20 mb-6">
+            <div class="w-full h-full flex items-center justify-center rounded-md transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg" 
+                 style="background: linear-gradient(135deg, #4247a1, #3368fa, #1e2171) !important;">
+              
+              <i [class]="card.icon" class="text-5xl text-white"></i>
+              
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-bold text-[#002670] mb-3 text-center">{{ card.title }}</h3>
+          <p class="text-gray-500 text-center font-medium leading-relaxed">{{ card.desc }}</p>
+
+        </div>
+      }
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+/* আইকন ঘোরানোর এনিমেশন */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* বাটন ফোকাস আউটলাইন রিমুভ */
+button:focus {
+  outline: none;
+}
+
+/* টেক্সট পঠনযোগ্যতা বৃদ্ধি */
+.leading-relaxed {
+  line-height: 1.8;
+}

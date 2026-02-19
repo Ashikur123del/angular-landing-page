@@ -1,0 +1,118 @@
+<section class="py-12 bg-[#f8fafc] ">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    <div class="text-center mb-10">
+      <h2 class="text-[#002a70] text-2xl md:text-3xl font-extrabold mb-3">সফটওয়্যারের মূল ফিচার ও মডিউলসমূহ</h2>
+      <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      
+      @for (item of features; track item.title) {
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 group">
+          <div class="flex flex-col gap-4">
+            
+            <div class="flex-shrink-0 w-12 h-12 bg-[#002a70] rounded-xl flex items-center justify-center text-white text-xl group-hover:bg-blue-600 transition-colors shadow-md">
+              <i [class]="item.icon"></i>
+            </div>
+
+            <div class="flex-grow">
+              <h3 class="text-[#002a70] text-lg font-bold mb-2 border-b border-gray-50 pb-2">{{ item.title }}</h3>
+              <ul class="space-y-1.5">
+                @for (point of item.points; track point) {
+                  <li class="flex items-start gap-2 text-gray-600 text-[13px] leading-snug">
+                    <i class="fa-solid fa-check-circle text-blue-500 mt-0.5"></i>
+                    <span>{{ point }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      }
+
+    </div>
+
+     <div class="flex flex-col lg:flex-row items-center gap-12 mt-14">
+    <div class="flex-1 space-y-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#1e2171] leading-tight">
+        SMS পাঠান নিজস্ব প্রতিষ্ঠানের ব্র্যান্ডে!
+      </h2>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">প্রতিষ্ঠানের নিজস্ব নাম ও পরিচয়ে ব্র্যান্ডেড এসএমএস প্রেরণ সুবিধা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">অভিভাবক, শিক্ষক ও শিক্ষার্থীদের সাথে পেশাদার যোগাযোগ ব্যবস্থা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">প্রতিটি এসএমএসে প্রতিষ্ঠানের ব্র্যান্ড বিশ্বস্ততা নিশ্চিতকরণ</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">নোটিশ, ফলাফল, ফি ও জরুরি বার্তা তাৎক্ষণিক প্রেরণ সুবিধা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">এসএমএস যোগাযোগের পূর্ণ রিপোর্ট ও নিয়ন্ত্রণ ব্যবস্থার সুবিধা</span>
+        </li>
+      </ul>
+    </div>
+    <div class="flex-1 w-full">
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#4247a1] to-[#3368fa] rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform hover:scale-[1.02] transition-transform duration-500">
+          <img src="12.jpg" alt="SMS Panel Illustration" class="w-full h-auto object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+    <div class="flex-1 space-y-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#1e2171] leading-tight">
+        ফি কালেকশন ৩০% পর্যন্ত বৃদ্ধি করুন!
+      </h2>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">স্বয়ংক্রিয় ফি কালেকশন সিস্টেমের মাধ্যমে আদায় প্রক্রিয়া সহজীকরণ</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">ভুল হিসাব, মিসিং পেমেন্ট ও ম্যানুয়াল ঝামেলা সম্পূর্ণভাবে হ্রাস</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">স্বয়ংক্রিয় নোটিফিকেশন ও রিমাইন্ডারের মাধ্যমে আদায় বৃদ্ধি</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">স্বচ্ছ রিপোর্টিং ও রিয়েল-টাইম মনিটরিং সুবিধা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">অভিভাবকদের জন্য সহজ ও নির্ভরযোগ্য পেমেন্ট অভিজ্ঞতা নিশ্চিতকরণ</span>
+        </li>
+      </ul>
+    </div>
+    <div class="flex-1 w-full">
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#3368fa] to-[#1e2171] rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform hover:scale-[1.02] transition-transform duration-500">
+          <img src="13.jpg" alt="Online Payment Illustration" class="w-full h-auto object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> 
+</section>
+
+
+
+
+

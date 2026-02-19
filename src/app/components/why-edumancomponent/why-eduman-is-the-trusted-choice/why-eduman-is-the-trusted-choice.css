@@ -1,0 +1,20 @@
+/* Swiper Pagination Dot Style */
+swiper-container::part(bullet) {
+  background: #cbd5e1;
+  opacity: 1;
+}
+
+swiper-container::part(bullet-active) {
+  background: #1a237e;
+  width: 10px;
+  height: 10px;
+}
+
+/* Smooth Transition for Icons */
+.solution-card i {
+  transition: transform 0.3s ease;
+}
+
+.solution-card:hover i {
+  transform: scale(1.1);
+}

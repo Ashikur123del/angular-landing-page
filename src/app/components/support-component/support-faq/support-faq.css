@@ -1,0 +1,23 @@
+
+:host {
+  display: block;
+}
+
+/* আইকন ঘোরানোর জন্য */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* কন্টেন্ট লোড হওয়ার সময় হালকা ফেইড ইফেক্ট */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button:focus {
+  outline: none;
+}

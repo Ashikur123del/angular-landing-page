@@ -1,0 +1,104 @@
+@layer components {
+  swiper-container {
+    display: block;
+    width: 100%;
+    min-height: 250px;
+  }
+
+  swiper-slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Features Slider (Blue Theme) */
+  .features-slider::part(bullet) {
+    background-color: #cbd5e1;
+    opacity: 1;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .features-slider::part(button-prev):hover,
+  .features-slider::part(button-next):hover {
+    background: linear-gradient(to bottom right, #3b82f6, #1e3a8a);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: all 300ms;
+  }
+
+  .features-slider::part(button-prev):disabled,
+  .features-slider::part(button-next):disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* Testimonials Slider (Orange Theme) */
+  .testimonials-slider::part(bullet) {
+    background: #cbd5e1;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  .testimonials-slider::part(button-prev):hover,
+  .testimonials-slider::part(button-next):hover {
+    background: linear-gradient(135deg, #fb923c, #f97316);
+    color: white;
+    box-shadow: 0 8px 25px rgba(251, 146, 60, 0.4);
+    transform: scale(1.1);
+  }
+
+  .testimonials-slider::part(button-prev):disabled,
+  .testimonials-slider::part(button-next):disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* Common Swiper Styles */
+  swiper-container::part(bullet-active) {
+    background: #fb923c;
+    width: 30px;
+    border-radius: 10px;
+  }
+
+  swiper-container::part(button-prev),
+  swiper-container::part(button-next) {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #1e1b4b;
+    scale: 0.7;
+  }
+
+  .copyright-gradient {
+    background: linear-gradient(135deg, #4247a1, #3368fa, #1e2171) !important;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    swiper-container {
+      padding: 0 30px;
+    }
+
+    swiper-container::part(button-prev),
+    swiper-container::part(button-next) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    swiper-container {
+      padding: 0 10px;
+    }
+
+    swiper-container::part(button-prev),
+    swiper-container::part(button-next) {
+      width: 36px;
+      height: 36px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+  }
+}

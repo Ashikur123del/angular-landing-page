@@ -1,0 +1,20 @@
+@layer components {
+  .bg-five {
+    background: linear-gradient(135deg, #4247a1, #3368fa, #1e2171);
+  }
+
+  .animate-in {
+    animation: slideIn 0.25s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

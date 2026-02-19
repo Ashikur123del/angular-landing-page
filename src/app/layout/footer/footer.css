@@ -1,0 +1,5 @@
+@layer components {
+  .copyright-gradient {
+    background: linear-gradient(135deg, #4247a1, #3368fa, #1e2171);
+  }
+}

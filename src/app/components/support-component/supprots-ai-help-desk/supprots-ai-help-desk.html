@@ -1,0 +1,36 @@
+<div class="max-w-7xl mx-auto py-3 px-4 font-sans">
+  <div class="text-center mb-16">
+    <h2 class="text-[#1a237e] text-3xl md:text-4xl font-extrabold inline-block relative">
+      {{ mainTitle() }}
+      <span class="absolute -bottom-3 left-0 w-1/2 h-1.5 bg-amber-500 rounded-full"></span>
+    </h2>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-12 items-center">
+    
+    <div class="space-y-4">
+      @for (item of features(); track item.title) {
+        <div class="bg-white p-4 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+          <h3 class="text-[#1a237e] text-xl font-bold mb-2 flex items-center gap-2">
+             <i class="fas fa-check-circle text-blue-600 text-lg"></i>
+             {{ item.title }}
+          </h3>
+          <p class="text-slate-500 text-sm md:text-base leading-relaxed pl-7">
+            {{ item.description }}
+          </p>
+        </div>
+      }
+    </div>
+
+    <div class="relative group">
+      <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 to-emerald-100 rounded-[45px] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+      
+      <div class="relative overflow-hidden rounded-[40px] shadow-2xl">
+        <img [src]="rightImage()" 
+             class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" 
+             [alt]="mainTitle()">
+      </div>
+    </div>
+
+  </div>
+</div>

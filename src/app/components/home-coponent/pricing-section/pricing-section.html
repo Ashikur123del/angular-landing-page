@@ -1,0 +1,59 @@
+<section class="py-10 bg-white font-sans">
+  <div class="max-w-7xl mx-auto px-4 text-center mb-10">
+    <h2 class="text-3xl md:text-5xl font-bold text-[#1e1b4b] mb-4">
+      এডুম্যান সফটওয়্যারের প্যাকেজ ও মূল্য
+    </h2>
+    <div class="flex flex-col gap-1.5 mt-4">
+      <p class="text-orange-600 font-semibold text-sm md:text-base">সিলভার প্যাকেজ- ন্যূনতম মাসিক বিল ২,০০০ টাকা মাত্র</p>
+      <div class="w-24 h-0.5 bg-orange-200 mx-auto"></div>
+      <p class="text-blue-600 font-semibold text-sm md:text-base">গোল্ড প্যাকেজ- ন্যূনতম মাসিক বিল ৪,০০০ টাকা মাত্র</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+    @for (plan of pricingPlans; track $index) {
+      <div class="bg-white rounded-[20px] overflow-hidden shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-all duration-400 hover:-translate-y-2 text-center relative flex flex-col">
+        
+        @if(plan.isFeatured) {
+          <div class="absolute top-3.5 right-3.5 bg-white/20 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full z-10 border border-white/30">
+            পপুলার
+          </div>
+        }
+        
+        <div class="p-[22px_20px] text-center text-white relative rounded-bl-[45%_18px] rounded-br-[45%_18px] bg-gradient-to-br" [ngClass]="plan.gradient">
+          <h3 class="text-[1.8rem] font-extrabold mb-1.5">{{ plan.name }}</h3>
+          <div class="bg-white/20 inline-block px-5 py-1.5 rounded-[50px] mb-2.5 backdrop-blur-[5px]">
+            <span class="text-[2rem] font-black">৳{{ plan.price }}</span>
+          </div>
+          <div class="text-white/90 text-xs font-medium">
+            <p>মাসিক / বার্ষিক / দ্বি-বার্ষিক</p>
+            <span class="bg-black/10 px-2 py-0.5 rounded-[15px] inline-block mt-1.5">শিক্ষার্থী প্রতি সাইন চার্জ</span>
+          </div>
+        </div>
+
+        <div class="p-[20px_22px] text-left flex-grow">
+          <ul class="space-y-2"> @for (item of plan.features; track $index) {
+              <li class="flex items-center text-[0.88rem] text-gray-600">
+                @if(item.status === 'check') {
+                  <i class="fas fa-check text-emerald-500 mr-2.5 text-sm"></i>
+                } @else {
+                  <i class="fas fa-times text-red-300 mr-2.5 text-sm"></i>
+                }
+                <span [class.text-gray-900]="item.highlight" [class.font-bold]="item.highlight">
+                  {{ item.text }}
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <div class="px-6 pb-7 mt-auto">
+          <button class="w-full py-3 cursor-pointer rounded-[10px] text-white font-bold uppercase mb-2.5 shadow-md transition-all duration-300 hover:scale-[1.03] bg-gradient-to-r text-sm tracking-wide" [ngClass]="plan.gradient">
+            {{ plan.btnText }}
+          </button>
+          <p class="text-[14px] text-gray-400">**৫% ভ্যাট প্রযোজ্য</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

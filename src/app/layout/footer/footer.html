@@ -1,0 +1,78 @@
+<footer class="pt-16 font-sans text-white border-t copyright-gradient">
+  <div class="container mx-auto px-6 lg:px-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12">
+    
+    <div class="space-y-6">
+      <img [src]="data.about.logo" alt="Eduman" class="h-11 invert"> 
+      <p class="text-[14px] leading-relaxed text-white font-bold text-justify opacity-90">
+        {{ data.about.description }}
+      </p>
+      <div class="flex space-x-3">
+        @for (social of data.about.socials; track social.platform) {
+          <a [href]="social.link" 
+             class="w-9 h-9 flex items-center justify-center rounded-lg text-white text-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {{social.bgColor}} border border-white/20">
+            <i [class]="social.icon"></i>
+          </a>
+        }
+      </div>
+    </div>
+
+    @for (section of data.sections; track section.title) {
+      <div>
+        <h3 class="font-black text-[17px] mb-7 text-white tracking-tight border-l-4 border-blue-500 pl-3">
+          {{ section.title }}
+        </h3>
+        <ul class="space-y-4">
+          @for (link of section.links; track link) {
+            <li>
+              <a href="#" class="text-[14px] font-bold text-white/80 hover:text-white transition-all duration-300 flex items-center group">
+                <i class="fas fa-chevron-right mr-3 text-[10px] text-blue-400 group-hover:translate-x-1 transition-transform"></i>
+                {{ link }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+
+    <div class="text-[14px]">
+      <h3 class="font-black text-[17px] mb-7 text-white tracking-tight border-l-4 border-blue-500 pl-3">
+        {{ data.contact.title }}
+      </h3>
+      <div class="space-y-4">
+        <div class="flex items-start space-x-3">
+          <i class="fas fa-map-marker-alt mt-1 text-blue-400"></i>
+          <span class="text-white font-bold leading-relaxed">{{ data.contact.address }}</span>
+        </div>
+        
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-phone-alt text-blue-400"></i>
+          <div class="font-extrabold">
+            @for (phone of data.contact.phones; track phone; let last = $last) {
+              <a [href]="'tel:' + phone" class="text-white hover:text-blue-300">{{ phone }}</a>{{ !last ? ', ' : '' }}
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <h3 class="font-black text-xs mb-4 text-blue-400 uppercase tracking-widest">
+          {{ data.contact.legalTitle }}
+        </h3>
+        <ul class="space-y-2">
+          @for (legal of data.contact.legalDetails; track legal) {
+            <li class="text-[12px] text-white/90 font-bold flex items-center">
+               <i class="fas fa-check-circle mr-2 text-blue-400/60"></i> {{ legal }}
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bg-black/20 py-6 text-center shadow-lg border-t border-white/5">
+    <p class="text-white text-[13px] font-black tracking-wider uppercase">
+      {{ data.copyright }}
+    </p>
+  </div>
+</footer>

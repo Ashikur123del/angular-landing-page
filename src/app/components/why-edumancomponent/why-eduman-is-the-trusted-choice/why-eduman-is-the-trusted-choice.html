@@ -1,0 +1,67 @@
+<div class="bg-[#f8f9fa] py-20 px-4 font-sans relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+
+  <div class="max-w-7xl mx-auto relative">
+    <div class="text-center mb-16">
+      <span class="text-orange-500 font-semibold text-base mb-2 block border-b-2 border-orange-500 w-fit mx-auto pb-1">Why Choose Us</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1e2a4a] mt-4">
+        এডুমান-ই কেন সবচাইতে ও এস সমাধান?
+      </h2>
+      <div class="mt-3 flex justify-center">
+        <div class="h-1.5 w-24 bg-orange-400 rounded-full"></div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 relative group/slider">
+      <swiper-container 
+        #swiperRef
+        slides-per-view="1" 
+        pagination="true" 
+        space-between="30"
+        breakpoints='{"640": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'
+        autoplay-delay="4000"
+        class="pb-16" 
+      >
+        @for (item of solutions; track $index) {
+          <swiper-slide>
+            <div class="h-full py-6">
+              <div class="h-full flex flex-col items-center p-8 rounded-[2.5rem] bg-white border border-gray-100 shadow-[0_15px_40px_-12px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-xl">
+                
+                <div class="mb-8">
+                  <div class="w-20 h-20 bg-[#0d3b82] text-white rounded-full flex items-center justify-center shadow-lg">
+                    <i [class]="item.icon + ' text-3xl'"></i>
+                  </div>
+                </div>
+
+                <h3 class="font-bold text-xl text-[#1e2a4a] mb-8 text-center">
+                  {{ item.title }}
+                </h3>
+
+                <ul class="space-y-4 w-full px-2">
+                  @for (point of item.points; track $index) {
+                    <li class="flex items-start text-[15px] font-medium text-gray-600">
+                      <i class="fa-solid fa-check mt-1 mr-3 transition-colors" 
+                         [ngClass]="$index % 2 === 0 ? 'text-black' : 'text-orange-500'"></i>
+                      <span class="flex-1">{{ point }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+
+      <button (click)="slidePrev(swiperRef)" 
+              class="absolute left-[-20px] top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white text-blue-900 shadow-md rounded-full flex items-center justify-center hover:bg-gray-50 border border-gray-100 hidden md:flex">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <button (click)="slideNext(swiperRef)" 
+              class="absolute right-[-20px] top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white text-blue-900 shadow-md rounded-full flex items-center justify-center hover:bg-gray-50 border border-gray-100 hidden md:flex">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

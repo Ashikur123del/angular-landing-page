@@ -1,0 +1,110 @@
+<section class="bg-[#f8fafc] py-10 px-6 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="text-center mb-16 relative">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-[#1e2171] relative inline-block pb-4">
+        আমাদের মূল ফিচারসমূহ
+        <svg class="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-3 text-orange-400 opacity-80" 
+             viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0 5 Q 50 12 100 5" stroke="currentColor" stroke-width="4" fill="transparent" stroke-linecap="round"/>
+        </svg>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (item of features; track item.title) {
+        <div class="relative p-[2px] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group animated-border-card">
+          <div class="bg-white p-5 rounded-[14px] h-full flex flex-col items-center text-center relative z-10">
+            <div class="w-16 h-16 flex items-center justify-center text-white bg-gradient-to-br from-[#4247a1] via-[#3368fa] to-[#1e2171] mb-4 shadow-md" style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;">
+              <i class="fas {{item.icon}} text-2xl"></i>
+            </div>
+            <h3 class="text-base font-bold text-[#1e2171] group-hover:text-[#3368fa] transition-colors">
+              {{item.title}}
+            </h3>
+            <p class="text-gray-400 text-[11px] mt-2 italic">স্মার্ট ম্যানেজমেন্ট সিস্টেম</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="mt-10 space-y-10">
+      
+  <div class="flex flex-col lg:flex-row items-center gap-12">
+    <div class="flex-1 space-y-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#1e2171] leading-tight">
+        SMS পাঠান নিজস্ব প্রতিষ্ঠানের ব্র্যান্ডে!
+      </h2>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">প্রতিষ্ঠানের নিজস্ব নাম ও পরিচয়ে ব্র্যান্ডেড এসএমএস প্রেরণ সুবিধা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">অভিভাবক, শিক্ষক ও শিক্ষার্থীদের সাথে পেশাদার যোগাযোগ ব্যবস্থা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">প্রতিটি এসএমএসে প্রতিষ্ঠানের ব্র্যান্ড বিশ্বস্ততা নিশ্চিতকরণ</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">নোটিশ, ফলাফল, ফি ও জরুরি বার্তা তাৎক্ষণিক প্রেরণ সুবিধা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">এসএমএস যোগাযোগের পূর্ণ রিপোর্ট ও নিয়ন্ত্রণ ব্যবস্থার সুবিধা</span>
+        </li>
+      </ul>
+    </div>
+    <div class="flex-1 w-full">
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#4247a1] to-[#3368fa] rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform hover:scale-[1.02] transition-transform duration-500">
+          <img src="12.jpg" alt="SMS Panel Illustration" class="w-full h-auto object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+    <div class="flex-1 space-y-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#1e2171] leading-tight">
+        ফি কালেকশন ৩০% পর্যন্ত বৃদ্ধি করুন!
+      </h2>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">স্বয়ংক্রিয় ফি কালেকশন সিস্টেমের মাধ্যমে আদায় প্রক্রিয়া সহজীকরণ</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">ভুল হিসাব, মিসিং পেমেন্ট ও ম্যানুয়াল ঝামেলা সম্পূর্ণভাবে হ্রাস</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">স্বয়ংক্রিয় নোটিফিকেশন ও রিমাইন্ডারের মাধ্যমে আদায় বৃদ্ধি</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">স্বচ্ছ রিপোর্টিং ও রিয়েল-টাইম মনিটরিং সুবিধা</span>
+        </li>
+        <li class="flex items-start gap-3 group">
+          <i class="fas fa-check-circle text-blue-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+          <span class="text-gray-600 text-lg">অভিভাবকদের জন্য সহজ ও নির্ভরযোগ্য পেমেন্ট অভিজ্ঞতা নিশ্চিতকরণ</span>
+        </li>
+      </ul>
+    </div>
+    <div class="flex-1 w-full">
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#3368fa] to-[#1e2171] rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform hover:scale-[1.02] transition-transform duration-500">
+          <img src="13.jpg" alt="Online Payment Illustration" class="w-full h-auto object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<div class="max-w-5xl mx-auto p-4 md:p-10 bg-slate-50">
+  <div class="space-y-12">
+    @for (section of sections(); track section.title) {
+      <div class="grid md:grid-cols-2 gap-8 items-center border-b border-gray-100 pb-16 last:border-0">
+        
+        <div class="relative group">
+          <div class="rounded-2xl shadow-xl  bg-white p-3">
+            <img [src]="section.image" [alt]="section.title" 
+                 class=" object-cover transition-transform duration-500 group-hover:scale-103 rounded-2xl">
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-5">
+          <h3 class="text-[#1a237e] text-2xl md:text-3xl font-extrabold tracking-tight">
+            {{ section.title }}
+          </h3>
+
+          <p class="text-[#1a237e] font-bold text-lg md:text-xl pt-2">
+            {{ section.priceText }}
+          </p>
+
+          <ul class="space-y-3">
+            @for (feature of section.features; track feature) {
+              <li class="flex items-start gap-3 text-slate-600">
+                <p class="text-base md:text-lg font-medium">{{ feature }}</p>
+              </li>
+            } @empty {
+              <li>কোনো ফিচার পাওয়া যায়নি</li>
+            }
+          </ul>
+
+          
+          <button class="w-fit bg-gradient-primary cursor-pointer hover:bg-blue-900 text-white px-8 py-2.5 rounded-md font-bold text-sm transition-all shadow-md active:scale-95">
+            {{ section.buttonText }}
+          </button>
+        </div>
+
+      </div>
+    }
+  </div>
+</div>

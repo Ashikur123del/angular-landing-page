@@ -1,0 +1,71 @@
+<div class="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans text-right my-6"  dir="rtl">
+  <div class="max-w-5xl w-full bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 overflow-hidden">
+    
+    <div class="text-center mb-6">
+      <h1 class="text-2xl font-bold text-[#1e2756] border-b-4 border-orange-400 inline-block pb-1 mb-6">
+        {{ pricingData.title }}
+      </h1>
+      
+      <div class="flex justify-between items-center px-10 mb-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg" alt="WordPress" class="h-16">
+        <div class="flex flex-col items-center">
+          <div class="relative">
+            <i class="fas fa-desktop text-5xl text-blue-800"></i>
+            <i class="fas fa-mobile-alt text-2xl text-blue-600 absolute -bottom-1 -right-2 bg-white rounded-sm px-0.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#1e2756] text-white py-3 rounded-lg font-bold text-xl mb-3 shadow-md">
+        {{ pricingData.bannerText }}
+      </div>
+      <p class="text-gray-700 text-[11px] font-bold">
+        {{ pricingData.integrationText }}
+      </p>
+    </div>
+
+    <div class="space-y-1.5">
+      <div class="grid grid-cols-2 bg-[#1e2756] text-white rounded-t-xl overflow-hidden text-center">
+        <div class="py-3 font-bold border-l border-blue-900">ওয়েবসাইট ও সার্ভিসেস</div>
+        <div class="py-3 font-bold">কাস্টমাইজেশন সুবিধাযুক্ত</div>
+      </div>
+
+      <div *ngFor="let item of features; let i = index" 
+           class="grid grid-cols-2 text-center py-2.5 transition-colors hover:bg-blue-50"
+           [ngClass]="i % 2 === 0 ? 'bg-[#e5e7eb]' : 'bg-[#f3f4f6]'">
+        <div class="font-bold border-l border-white flex items-center justify-center gap-2 px-2">
+          <i [class]="item.icon" class="text-blue-900 text-xs opacity-70"></i>
+          {{ item.label }}
+        </div>
+        <div class="font-bold text-gray-800">{{ item.value }}</div>
+      </div>
+
+      <div class="grid grid-cols-2 bg-[#ff6a35] text-white py-3 text-center shadow-inner">
+        <div class="font-bold border-l border-orange-400">{{ pricingData.firstYearLabel }}</div>
+        <div class="font-black text-xl">{{ pricingData.firstYearPrice }}</div>
+      </div>
+      
+      <div class="grid grid-cols-2 bg-[#1d68d1] text-white py-3 text-center">
+        <div class="font-bold border-l border-blue-500">{{ pricingData.renewalLabel }}</div>
+        <div class="font-black text-xl">{{ pricingData.renewalPrice }}</div>
+      </div>
+      
+      <div class="grid grid-cols-2 bg-[#00b651] text-white py-3 text-center rounded-b-xl">
+        <div class="font-bold border-l border-green-500">{{ pricingData.domainLabel }}</div>
+        <div class="text-[10px] font-bold flex items-center justify-center px-2 leading-tight">
+          {{ pricingData.domainNote }}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 text-center">
+      <p class="font-semibold font-bold text-gray-500 mb-4 italic">
+        ** {{ pricingData.terms }}
+      </p>
+      <button (click)="onOrder()" 
+              class="bg-gradient-primary cursor-pointer hover:bg-black text-white px-10 py-1.5 rounded text-sm font-bold transition-all shadow-lg active:scale-95">
+        অর্ডার করুন
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<nav class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+  <div class="container mx-auto px-4 flex items-center justify-between h-20">
+    
+    <div class="flex-1 flex justify-start">
+     <a routerLink="#"> <img src="about-4.png" alt="eDUMAN" class="h-10 md:h-12 w-auto cursor-pointer"> </a>
+    </div>
+
+    <div class="hidden lg:flex flex-[3] justify-center">
+      <ul class="flex items-center font-bold text-gray-800 text-[15px] gap-1">
+        @for (item of navItems(); track item.label) {
+          
+          @if (item.children) {
+            <li class="relative">
+              <button (click)="toggleDemo($event)" 
+                      class="flex items-center gap-2 px-5 h-10 rounded-md transition-all cursor-pointer font-bold hover:text-[#3368fa]">
+                <span>{{ item.label }}</span>
+                <svg class="w-4 h-4 transition-transform duration-300" [class.rotate-180]="isDemoOpen()" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+
+              @if (isDemoOpen()) {
+                <div class="absolute top-[55px] left-0 w-64 bg-white shadow-2xl py-2 z-[100] border-t-2 border-[#3368fa] rounded-b-md">
+                  @for (child of item.children; track child.label) {
+                    <a [routerLink]="child.link" 
+                       (click)="onChildClick(item.label)" 
+                       class="block px-8 py-3.5 text-gray-700 hover:bg-gray-50 hover:text-[#3368fa] font-bold border-b border-gray-50 last:border-0">
+                       {{ child.label }}
+                    </a>
+                  }
+                </div>
+              }
+            </li>
+          } 
+          
+          @else {
+            <li>
+              <a [routerLink]="item.link" 
+                 (click)="setActive(item)"
+                 [class]="item.active ? 'bg-five text-white shadow-md' : 'px-4 hover:text-[#3368fa]'"
+                 class="flex items-center rounded-md px-5 h-10 transition-all font-bold whitespace-nowrap cursor-pointer">
+                {{ item.label }}
+              </a>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+
+    <div class="flex-1 flex justify-end items-center gap-4">
+      <a routerLink="#" class="hidden lg:block bg-five text-white px-8 py-2.5 rounded-md font-bold text-[15px] hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95 shadow-lg">
+        লগইন করুন
+      </a>
+
+      <button (click)="toggleMobileMenu()" class="lg:hidden p-2 text-gray-800 focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" 
+                [attr.d]="isMobileMenuOpen() ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  @if (isMobileMenuOpen()) {
+    <div class="lg:hidden bg-white border-t border-gray-100 shadow-2xl overflow-y-auto max-h-[calc(100vh-80px)]">
+      <div class="flex flex-col p-4">
+        @for (item of navItems(); track item.label) {
+          @if (item.children) {
+            <div class="flex flex-col">
+              <button (click)="toggleDemo($event)" class="flex justify-between items-center px-5 py-4 font-bold text-gray-800 border-b border-gray-50">
+                <span>{{ item.label }}</span>
+                <svg class="w-4 h-4 transition-transform" [class.rotate-180]="isDemoOpen()" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              @if (isDemoOpen()) {
+                <div class="bg-gray-50 flex flex-col">
+                  @for (child of item.children; track child.label) {
+                    @if (child.link) {
+                      <a [routerLink]="child.link" (click)="onChildClick(item.label)" class="px-10 py-3 text-gray-600 font-semibold border-b border-gray-100 last:border-0">
+                        {{ child.label }}
+                      </a>
+                    } @else {
+                      <div class="px-10 py-3 text-gray-400 font-semibold border-b border-gray-100 last:border-0">{{ child.label }}</div>
+                    }
+                  }
+                </div>
+              }
+            </div>
+          } @else {
+            @if (item.link) {
+              <a [routerLink]="item.link" (click)="setActive(item)" 
+                 [class]="item.active ? 'bg-five text-white rounded-md' : 'text-gray-800 border-b border-gray-50'"
+                 class="px-5 py-4 font-bold transition-colors">
+                {{ item.label }}
+              </a>
+            } @else {
+              <div class="px-5 py-4 text-gray-400 font-bold transition-colors">{{ item.label }}</div>
+            }
+          }
+        }
+        <a routerLink="#" class="w-full bg-five text-white py-4 font-bold mt-6 rounded-md shadow-lg">লগইন করুন</a>
+      </div>
+    </div>
+  }
+</nav>
+
+
