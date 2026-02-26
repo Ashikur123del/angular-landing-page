@@ -1,36 +1,43 @@
-<section class="bg-gray-50 py-16 px-4">
+<section class="bg-gray-50 py-16 px-4 overflow-hidden">
   <div class="max-w-6xl mx-auto">
     
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#002B7F] inline-block relative pb-2">
-        কেন এডুমান বেছে নেবেন?
-        <span class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 rounded-full"></span>
+    <div class="text-center mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#002B7F] inline-block relative pb-3">
+        কেন মেন্টরইআরপি বেছে নেবেন?
+        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1.5 bg-orange-500 rounded-full"></span>
       </h2>
     </div>
 
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-      
-      <div class="w-full lg:w-3/5 space-y-5">
-        @for (reason of reasons; track $index) {
-          <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100 transform transition hover:-translate-y-1 hover:shadow-md">
-            <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-              <i [class]="reason.icon" class="text-[#002B7F] text-xl"></i>
-            </div>
-            <p class="text-gray-800 font-medium text-lg">{{ reason.text }}</p>
-          </div>
-        }
-      </div>
-
-      <div class="w-full lg:w-2/5 flex justify-center">
-        <div class="relative group">
-          <img src="Box-2.png" alt="Eduman Software" class="max-w-full h-auto drop-shadow-2xl group-hover:scale-105 transition-transform duration-300">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-3">
+  
+  <div class="w-full lg:w-[45%] space-y-2">
+    @for (reason of reasons; track $index) {
+      <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100 transform transition hover:-translate-y-1 hover:shadow-md">
+        <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+          <i [class]="reason.icon" class="text-[#002B7F] text-xl"></i>
         </div>
+        <p class="text-gray-800 font-medium text-lg">{{ reason.text }}</p>
       </div>
-    </div>
+    }
+  </div>
 
-    <div class="text-center mt-16">
-      <button class="bg-[#002B7F] cursor-pointer text-white px-10 py-4 rounded-lg font-bold text-xl hover:bg-blue-900 transition-all shadow-xl active:scale-95">
-        লাইভ ডেমো দেখুন <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+  <div class="w-full lg:w-[60%] flex justify-center lg:justify-end">
+    <div class="relative group w-full">
+      <img src="man-book.png" 
+           alt="Eduman Software" 
+           class="w-full h-auto object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] 
+                  group-hover:scale-110 transition-transform duration-500 ease-in-out">
+      
+      <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-200/30 blur-[100px] rounded-full"></div>
+    </div>
+  </div>
+
+</div>
+
+    <div class="text-center mt-6">
+      <button class="bg-[#002B7F] cursor-pointer text-white px-12 py-4 rounded-xl font-bold text-xl hover:bg-blue-900 transition-all shadow-lg hover:shadow-[#002B7F]/30 active:scale-95 flex items-center mx-auto">
+        লাইভ ডেমো দেখুন 
+        <i class="fas fa-arrow-right ml-3 text-sm"></i>
       </button>
     </div>
 

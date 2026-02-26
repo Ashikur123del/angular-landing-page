@@ -11,7 +11,7 @@ import { NgClass, NgStyle } from '@angular/common';
 export class ShareVideoDemo {
   @Input() sectionTitle = 'শিক্ষা প্রতিষ্ঠানের কমপ্লিট সলিউশন';
   @Input() thumbnailUrl = 'srt-2.png';
-  @Input() videoLabel = 'এডুমান সফটওয়্যার';
+  @Input() videoLabel = 'মেন্টরইআরপি সফটওয়্যার';
   @Input() minHeight = 'auto';
   
   // বাটন কন্ট্রোল

@@ -18,8 +18,8 @@ export class MoneyBackSlider implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   cards = [
-    { title: 'শিক্ষা ব্যবস্থাপনার সকল সমাধান', img: 'iMAGE-04 (1).png' },
-    { title: 'রকেটের গতিতে প্রতিষ্ঠান পরিচালনা', img: 'iMAGE-04.png' },
+    { title: 'শিক্ষা ব্যবস্থাপনার সকল সমাধান', img: 'h-ss.png' },
+    { title: 'রকেটের গতিতে প্রতিষ্ঠান পরিচালনা', img: 'h-ss1.png' },
     { title: 'ফি কালেকশন হবে ডিজিটাল', img: 'iMAGE-05.png' },
     { title: 'আধুনিক ব্যবস্থাপনা', img: 'iMAGE-12.png' },
     { title: 'আধুনিক ব্যবস্থাপনা', img: 'iMAGE-12.png' },

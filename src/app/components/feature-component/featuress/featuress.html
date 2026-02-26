@@ -1,25 +1,31 @@
 <section 
-  class="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat flex flex-col justify-between" 
-  [style.backgroundImage]="'url(' + bgImage + ')'"
-  [style.minHeight]="minHeight"> 
+  class="relative w-full overflow-hidden flex flex-col justify-between bg-no-repeat transition-all duration-500" 
+  [style.backgroundImage]="'url(' + bgImage() + ')'"
+  [style.minHeight]="minHeight"
+  style="background-size: cover; background-position: center; background-attachment: scroll;"> 
   
-  <div class="absolute inset-0 bg-black/20 z-0"></div>
+  <div class="absolute inset-0 bg-black/40 z-0"></div>
 
-  <div class="max-w-7xl mx-auto px-4 text-center relative z-10 w-full flex-grow flex items-center justify-center pt-16">
+  <div class="max-w-7xl mx-auto px-4 text-center relative z-10 w-full flex-grow flex items-center justify-center pt-20">
       </div>
 
   <div class="w-full bg-[#001a4d]/90 backdrop-blur-md py-6 border-t border-white/10 relative z-10">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-6 md:gap-10 px-4 text-center">
-        <img [src]="logoLeft" alt="Brand Left" class="h-6 md:h-8 brightness-0 invert opacity-90">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 px-6">
         
-        <p class="text-white text-sm md:text-lg font-light tracking-wide">
-            {{ bannerText }} 
-            <span class="mx-2 opacity-50">|</span> 
+        <div class="flex items-center gap-4 group">
+          <img [src]="logoLeft()" alt="Brand Left" class="h-6 md:h-8 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity">
+        </div>
+        
+        <p class="text-white text-xs sm:text-sm md:text-lg font-light tracking-wide text-center">
+            {{ bannerText() }} 
+            <span class="mx-2 opacity-30">|</span> 
             {{ separator }} 
-            <span class="font-bold text-white">{{ brandName }}</span>
+            <span class="font-bold text-white ml-1">{{ brandName }}</span>
         </p>
         
-        <img [src]="logoRight" alt="Brand Right" class="h-6 md:h-8 brightness-0 invert">
+        <div class="flex items-center gap-4 group">
+          <img [src]="logoRight" alt="Brand Right" class="h-6 md:h-8 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity">
+        </div>
     </div>
   </div>
 </section>
