@@ -30,7 +30,8 @@ export class Navbar {
     { label: 'মূল্য তালিকা', link: '/pricing', active: false },
     { label: 'ব্লগ', link: '/blog', active: false },
     { label: 'সাপোর্ট', link: '/support', active: false },
-    { label: 'FAQ', link: '/faq', active: false }
+    { label: 'FAQ', link: '/faq', active: false },
+    { label: 'ক্রিয়েট', link: '/create', active: false },
   ]);
 
   constructor(private el: ElementRef, public router: Router) {

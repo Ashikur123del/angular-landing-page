@@ -20,9 +20,9 @@ export class MoneyBackSlider implements AfterViewInit {
   cards = [
     { title: 'শিক্ষা ব্যবস্থাপনার সকল সমাধান', img: 'h-ss.png' },
     { title: 'রকেটের গতিতে প্রতিষ্ঠান পরিচালনা', img: 'h-ss1.png' },
-    { title: 'ফি কালেকশন হবে ডিজিটাল', img: 'iMAGE-05.png' },
-    { title: 'আধুনিক ব্যবস্থাপনা', img: 'iMAGE-12.png' },
-    { title: 'আধুনিক ব্যবস্থাপনা', img: 'iMAGE-12.png' },
+    { title: 'ফি কালেকশন হবে ডিজিটাল', img: 'square .png' },
+    { title: 'আধুনিক ব্যবস্থাপনা', img: 'fiss.jpeg' },
+    { title: 'আধুনিক ব্যবস্থাপনা', img: 'h-ss1.png' },
   ];
 
   ngAfterViewInit() {

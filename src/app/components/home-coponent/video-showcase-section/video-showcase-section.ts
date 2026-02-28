@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -12,27 +12,27 @@ export class VideoShowcaseSection {
   private sanitizer = inject(DomSanitizer);
   private platformId = inject(PLATFORM_ID);
   
-  private videoId = 'niuuUXu-U14'; 
-  private rawUrl = `https://www.youtube.com/embed/${this.videoId}?autoplay=1`;
+  private videoId = 'rCCVGi_h3nA'; 
+  
+  private rawUrl = `https://www.youtube.com/embed/${this.videoId}?autoplay=1&rel=0`;
   
   videoUrl: SafeResourceUrl | null = null;
   isVideoVisible = signal<boolean>(false);
-  
-  // ngOnInit(): void {
-  //   this.openVideo();
-  // }
 
   openVideo() {
+  
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.rawUrl);
+    this.isVideoVisible.set(true);
+
     if (isPlatformBrowser(this.platformId)) {
-      this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.rawUrl);
-      this.isVideoVisible.update(()=>true);
-      // document.body.style.overflow = 'hidden'; 
+      document.body.style.overflow = 'hidden'; 
     }
   }
 
   closeVideo() {
-      this.isVideoVisible.update(()=>false);
+    this.isVideoVisible.set(false);
     this.videoUrl = null; 
+    
     if (isPlatformBrowser(this.platformId)) {
       document.body.style.overflow = 'auto'; 
     }

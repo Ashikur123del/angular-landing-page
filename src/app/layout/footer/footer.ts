@@ -7,14 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
-export class Footer {
+export class Footer { 
   data = {
     about: {
       logo: 'footer-logo.png',
       description: '১০+ বছরের অভিজ্ঞতা ও ৫,০০০+ স্কুল, কলেজ ও মাদ্রাসার আস্থার প্রতীক এডুমান। বাংলাদেশের সবচেয়ে নির্ভরযোগ্য School & College Management Software—এখন আপনার শিক্ষা প্রতিষ্ঠান হবে সম্পূর্ণ Paperless, Cashless, নিরাপদ ও সিস্টেম-ড্রিভেন।',
       socials: [
-        { platform: 'facebook', icon: 'fab fa-facebook-f', link: '#', bgColor: 'bg-[#3b5998]' },
-        { platform: 'youtube', icon: 'fab fa-youtube', link: '#', bgColor: 'bg-[#ff0000]' }
+        { platform: 'facebook', icon: 'fab fa-facebook-f', link: 'https://www.facebook.com/profile.php?id=61585379236867', bgColor: 'bg-[#3b5998]' },
+        { platform: 'youtube', icon: 'fab fa-youtube', link: 'https://youtu.be/rCCVGi_h3nA?si=9biEWCOGp-6MJInZ', bgColor: 'bg-[#ff0000]' }
       ]
     },
     sections: [

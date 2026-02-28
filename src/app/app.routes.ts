@@ -1,18 +1,71 @@
 
-
 import { Routes } from '@angular/router';
+import { Creates } from './pages/create/create/create';
+import { Home } from './pages/home/home';
+import { Future } from './pages/future/future';
+import { WhyEduman } from './pages/why-eduman/why-eduman';
+import { DemoVideo } from './pages/demo-video/demo-video';
+import { GraphicalView } from './pages/graphical-view/graphical-view';
+import { LiveSoftware } from './pages/live-software/live-software';
+import { Tutorial } from './pages/tutorial/tutorial';
+import { PriceList } from './pages/price-list/price-list';
+import { Blog } from './pages/blog/blog';
+import { Support } from './pages/support/support';
+import { FaqPage } from './pages/faq-page/faq-page';
+
 
 export const routes: Routes = [
-    { path: '', loadComponent: () => import('./pages/home/home').then(m => m.Home), pathMatch: 'full' },
-    { path: 'future', loadComponent: () => import('./pages/future/future').then(m => m.Future) },
-    { path: 'why-eduman', loadComponent: () => import('./pages/why-eduman/why-eduman').then(m => m.WhyEduman) },
-    { path: 'demo/video', loadComponent: () => import('./pages/demo-video/demo-video').then(m => m.DemoVideo) },
-    { path: 'graphical/view', loadComponent: () => import('./pages/graphical-view/graphical-view').then(m => m.GraphicalView) },
-    {path: 'live-software', loadComponent: () => import('./pages/live-software/live-software').then(m => m.LiveSoftware) },
-    {path: 'tutorial', loadComponent: () => import('./pages/tutorial/tutorial').then(m => m.Tutorial) },
-    {path: 'pricing', loadComponent: () => import('./pages/price-list/price-list').then(m => m.PriceList) },
-    {path: 'blog', loadComponent: () => import('./pages/blog/blog').then(m => m.Blog) },
-    {path: 'support', loadComponent: () => import('./pages/support/support').then(m => m.Support) },
-    {path: 'faq', loadComponent: () => import('./pages/faq-page/faq-page').then(m => m.FaqPage) },
+    { 
+        path: '', 
+        component: Home, 
+        pathMatch: 'full' 
+    },
+    { 
+        path: 'future', 
+        component: Future, pathMatch: 'full'
+    },
+    { 
+        path: 'why-eduman', 
+        component: WhyEduman , pathMatch: 'full'
+    },
+    { 
+        path: 'demo/video', 
+        component: DemoVideo , pathMatch: 'full'
+    },
+    { 
+        path: 'graphical/view', 
+        component: GraphicalView , pathMatch: 'full'
+    },
+    { 
+        path: 'live-software', 
+        component: LiveSoftware , pathMatch: 'full'
+    },
+    { 
+        path: 'tutorial', 
+        component: Tutorial , pathMatch: 'full'
+    },
+    { 
+        path: 'pricing', 
+        component: PriceList , pathMatch: 'full'
+    },
+    { 
+        path: 'blog', 
+        component: Blog , pathMatch: 'full'
+    },
+    { 
+        path: 'support', 
+        component: Support , pathMatch: 'full'
+    },
+    { 
+        path: 'faq', 
+        component: FaqPage , pathMatch: 'full'
+    },
+   
+    { 
+        path: 'create', 
+       component: Creates, pathMatch: 'full' 
+    },
+    
+    // ওয়াইল্ডকার্ড রাউট সবার নিচে থাকবে
     { path: '**', redirectTo: '' }
 ];
