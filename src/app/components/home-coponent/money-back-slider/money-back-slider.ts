@@ -39,3 +39,4 @@ export class MoneyBackSlider implements AfterViewInit {
     }
   }
 }
+

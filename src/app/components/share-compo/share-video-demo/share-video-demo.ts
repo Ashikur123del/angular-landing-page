@@ -8,9 +8,9 @@ import { NgClass, NgStyle } from '@angular/common';
   templateUrl: './share-video-demo.html',
   styleUrl: './share-video-demo.css',
 })
-export class ShareVideoDemo {
+export class  ShareVideoDemo {
   @Input() sectionTitle = 'শিক্ষা প্রতিষ্ঠানের কমপ্লিট সলিউশন';
-  @Input() thumbnailUrl = 'srt-2.png';
+  @Input() thumbnailUrl = 'thumbnail.jpg.jpeg';
   @Input() videoLabel = 'মেন্টরইআরপি সফটওয়্যার';
   @Input() minHeight = 'auto';
   

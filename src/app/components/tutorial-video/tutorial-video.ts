@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, signal, computed } from '@angular/core'; // computed যোগ করা হয়েছে
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tutorial-video',
+  standalone: true, // যদি standalone হয়
   imports: [],
   templateUrl: './tutorial-video.html',
   styleUrl: './tutorial-video.css',
@@ -11,59 +12,75 @@ export class TutorialVideo {
   videos = signal([
     {
       title: 'Eduman- Teacher Information',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
     {
-      title: 'Eduman- Student Information',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
     {
-      title: 'Eduman- Core Settings',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
     {
-      title: 'Eduman- Core Settings',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
     {
-      title: 'Eduman- Core Settings',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
     {
-      title: 'Eduman- Core Settings',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
     {
-      title: 'Eduman- Core Settings',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
     {
-      title: 'Eduman- Core Settings',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
     {
-      title: 'Eduman- Core Settings',
-      thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Eduman- Teacher Information',
+      thumbnail: 'thumbnail.jpg.jpeg',
+      videoUrl: 'https://youtu.be/rCCVGi_h3nA'
     },
+    
   ]);
 
   selectedVideo = signal<string | null>(null);
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  // ভিডিও ইউআরএলটি নিরাপদ করার জন্য
-  get safeVideoUrl() {
-    const url = this.selectedVideo();
-    return url ? this.sanitizer.bypassSecurityTrustResourceUrl(url + '?autoplay=1') : null;
+  get safeVideoUrl(): SafeResourceUrl | null {
+    const rawUrl = this.selectedVideo();
+    if (!rawUrl) return null;
+    let videoId = '';
+    if (rawUrl.includes('youtu.be/')) {
+      videoId = rawUrl.split('youtu.be/')[1].split('?')[0];
+    } else if (rawUrl.includes('watch?v=')) {
+      videoId = rawUrl.split('v=')[1].split('&')[0];
+    }
+
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 
   openVideo(url: string) {

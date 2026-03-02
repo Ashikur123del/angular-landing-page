@@ -37,5 +37,5 @@ export class SupprotsAIHelpDesk {
   ]);
 
   // ডান পাশের সেকশনের জন্য ইমেজ ইনপুট
-  rightImage = input<string>('ss-1.png'); 
+  rightImage = input<string>('suppor.png'); 
 }
