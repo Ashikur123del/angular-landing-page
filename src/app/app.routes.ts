@@ -1,6 +1,6 @@
 
 import { Routes } from '@angular/router';
-import { Creates } from './pages/create/create/create';
+import { Create} from './pages/create/create/create';
 import { Home } from './pages/home/home';
 import { Future } from './pages/future/future';
 import { WhyEduman } from './pages/why-eduman/why-eduman';
@@ -63,7 +63,7 @@ export const routes: Routes = [
    
     { 
         path: 'create', 
-       component: Creates, pathMatch: 'full' 
+       component: Create, pathMatch: 'full' 
     },
     
     // ওয়াইল্ডকার্ড রাউট সবার নিচে থাকবে
