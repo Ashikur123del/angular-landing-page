@@ -3,10 +3,18 @@
     <div class="flex flex-col lg:flex-row items-stretch justify-center gap-16">
       <div class="w-full lg:w-1/2 hidden lg:block">
         <div class="relative h-full min-h-[600px] overflow-hidden rounded-3xl group shadow-2xl">
-          <img src="conta.jpg" alt="Contact Support" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/20 to-transparent flex flex-col justify-end p-10 text-white">
+          <img
+            src="conta.jpg"
+            alt="Contact Support"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/20 to-transparent flex flex-col justify-end p-10 text-white"
+          >
             <h3 class="text-3xl font-bold mb-3">আমাদের সাথে সরাসরি কথা বলুন</h3>
-            <p class="text-blue-100 opacity-90 text-lg">আপনার প্রতিষ্ঠানের জন্য সঠিক সমাধানটি বেছে নিতে আমাদের টিম সবসময় প্রস্তুত।</p>
+            <p class="text-blue-100 opacity-90 text-lg">
+              আপনার প্রতিষ্ঠানের জন্য সঠিক সমাধানটি বেছে নিতে আমাদের টিম সবসময় প্রস্তুত।
+            </p>
           </div>
         </div>
       </div>
@@ -14,22 +22,22 @@
       <div class="w-full lg:w-1/2">
         <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
           <h2 class="text-3xl font-black text-slate-900 mb-6 border-b pb-4">যোগাযোগ করুন</h2>
-          
+
           <form class="space-y-5">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2">আপনার নাম</label>
-                <input type="text" placeholder="নাম লিখুন" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none transition-all shadow-sm">
+                <input type="text" placeholder="নাম লিখুন" class="form-input" />
               </div>
-              
+
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2">ফোন নম্বর</label>
-                <input type="tel" placeholder="017XXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none transition-all shadow-sm">
+                <input type="tel" placeholder="017XXXXXXXX" class="form-input" />
               </div>
 
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2">পেশা (Profession)</label>
-                <select [(ngModel)]="selectedProfession" name="profession" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none bg-white shadow-sm cursor-pointer">
+                <select [(ngModel)]="selectedProfession" name="profession" class="form-select">
                   <option value="All">All</option>
                   @for (p of professions(); track p) {
                     <option [value]="p">{{ p }}</option>
@@ -39,7 +47,12 @@
 
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2">বিভাগ (Division)</label>
-                <select [(ngModel)]="selectedDivision" (change)="onDivisionChange()" name="division" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none bg-white shadow-sm cursor-pointer">
+                <select
+                  [(ngModel)]="selectedDivision"
+                  (change)="onDivisionChange()"
+                  name="division"
+                  class="form-select"
+                >
                   <option value="All">All</option>
                   @for (div of divisions(); track div) {
                     <option [value]="div">{{ div }}</option>
@@ -49,7 +62,13 @@
 
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2">জেলা (District)</label>
-                <select [(ngModel)]="selectedDistrict" (change)="onDistrictChange()" [disabled]="selectedDivision() === 'All'" name="district" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none bg-white shadow-sm cursor-pointer disabled:bg-gray-100">
+                <select
+                  [(ngModel)]="selectedDistrict"
+                  (change)="onDistrictChange()"
+                  [disabled]="selectedDivision() === 'All'"
+                  name="district"
+                  class="form-select disabled:bg-gray-100"
+                >
                   <option value="All">All</option>
                   @for (dist of filteredDistricts(); track dist) {
                     <option [value]="dist">{{ dist }}</option>
@@ -59,10 +78,21 @@
 
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2">থানা (Thana)</label>
-                <select [(ngModel)]="selectedThana" [disabled]="selectedDistrict() === 'All'" name="thana" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none bg-white shadow-sm cursor-pointer disabled:bg-gray-100">
+                <select
+                  [(ngModel)]="selectedThana"
+                  [disabled]="selectedDistrict() === 'All'"
+                  name="thana"
+                  class="form-select disabled:bg-gray-100"
+                >
                   <option value="All">All</option>
-                  @for (thana of filteredThanas(); track thana) {
-                    <option [value]="thana">{{ thana }}</option>
+                  @if (filteredThanas().length > 0) {
+                    @for (thana of filteredThanas(); track thana) {
+                      <option [value]="thana">{{ thana }}</option>
+                    }
+                  } @else {
+                    @if (selectedDistrict() !== 'All') {
+                      <option disabled>Data Not Added Yet</option>
+                    }
                   }
                 </select>
               </div>
@@ -70,20 +100,27 @@
 
             <div>
               <label class="block text-sm font-bold text-slate-700 mb-2">এলাকা (Area)</label>
-              <input type="text" placeholder="এলাকার নাম লিখুন" class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none transition-all shadow-sm">
+              <input type="text" placeholder="এলাকার নাম লিখুন" class="form-input" />
             </div>
 
             <div>
               <label class="block text-sm font-bold text-slate-700 mb-2">আপনার মেসেজ</label>
-              <textarea rows="4" placeholder="আপনার মেসেজ লিখুন..." class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none resize-none shadow-sm"></textarea>
+              <textarea
+                rows="4"
+                placeholder="আপনার মেসেজ লিখুন..."
+                class="form-input resize-none"
+              ></textarea>
             </div>
 
-            <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl shadow-lg transition-all active:scale-95">
+            <button
+              type="submit"
+              class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl shadow-lg transition-all active:scale-95"
+            >
               সাবমিট করুন
             </button>
           </form>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 </section>

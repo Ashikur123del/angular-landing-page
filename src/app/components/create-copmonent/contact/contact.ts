@@ -9,54 +9,57 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './contact.css',
 })
 export class Contact {
-  // ডাটা লিস্ট
-  divisions = signal(['Dhaka', 'Chattogram', 'Rajshahi']);
+  divisions = signal([
+    'Barishal', 'Chattogram', 'Dhaka', 'Khulna', 
+    'Mymensingh', 'Rajshahi', 'Rangpur', 'Sylhet'
+  ]);
+
   professions = signal(['Teacher', 'Student', 'Businessman', 'Others']);
 
-  // জেলা ডাটাবেজ
-  private allDistricts = {
-    'Dhaka': ['Dhaka', 'Gazipur', 'Narayanganj'],
-    'Chattogram': ['Chattogram', 'Cox\'s Bazar', 'Feni'],
-    'Rajshahi': ['Rajshahi', 'Bogura', 'Pabna']
+  private allDistricts: Record<string, string[]> = {
+    'Barishal': ['Barguna', 'Barishal', 'Bhola', 'Jhalokati', 'Patuakhali', 'Pirojpur'],
+    'Chattogram': ['Bandarban', 'Brahmanbaria', 'Chandpur', 'Chattogram', 'Cumilla', 'Cox\'s Bazar', 'Feni', 'Khagrachhari', 'Lakshmipur', 'Noakhali', 'Rangamati'],
+    'Dhaka': ['Dhaka', 'Faridpur', 'Gazipur', 'Gopalganj', 'Kishoreganj', 'Madaripur', 'Manikganj', 'Munshiganj', 'Narayanganj', 'Narsingdi', 'Rajbari', 'Shariatpur', 'Tangail'],
+    'Khulna': ['Bagerhat', 'Chuadanga', 'Jessore', 'Jhenaidah', 'Khulna', 'Kushtia', 'Magura', 'Meherpur', 'Narail', 'Satkhira'],
+    'Mymensingh': ['Jamalpur', 'Mymensingh', 'Netrokona', 'Sherpur'],
+    'Rajshahi': ['Bogura', 'Joypurhat', 'Naogaon', 'Natore', 'Chapainawabganj', 'Pabna', 'Rajshahi', 'Sirajganj'],
+    'Rangpur': ['Dinajpur', 'Gaibandha', 'Kurigram', 'Lalmonirhat', 'Nilphamari', 'Panchagarh', 'Rangpur', 'Thakurgaon'],
+    'Sylhet': ['Habiganj', 'Moulvibazar', 'Sunamganj', 'Sylhet']
   };
 
-  // থানা ডাটাবেজ (Key হিসেবে জেলা ব্যবহার করা হয়েছে)
   private allThanas: Record<string, string[]> = {
-    'Dhaka': ['Mirpur', 'Uttara', 'Gulshan', 'Dhanmondi', 'Motijheel'],
-    'Gazipur': ['Sreepur', 'Kaliakair', 'Kapasia', 'Tongi'],
-    'Narayanganj': ['Sadar', 'Rupganj', 'Sonargaon', 'Araihazar'],
-    'Chattogram': ['Pahartali', 'Patenga', 'Hathazari', 'Kotwali'],
-    'Cox\'s Bazar': ['Ukhia', 'Teknaf', 'Ramu', 'Chakaria'],
-    // একইভাবে ৬৪ জেলার থানা এখানে অ্যাড করতে পারবেন
+    'Natore': ['Natore Sadar', 'Baraigram', 'Bagatipara', 'Lalpur', 'Singra', 'Gurudaspur', 'Naldanga'],
+    'Dhaka': ['Mirpur', 'Uttara', 'Gulshan', 'Dhanmondi', 'Motijheel', 'Savar', 'Dhamrai', 'Keraniganj'],
+    'Gazipur': ['Sreepur', 'Kaliakair', 'Kapasia', 'Tongi', 'Gazipur Sadar'],
+    'Bogura': ['Bogura Sadar', 'Sherpur', 'Shajahanpur', 'Dhunat', 'Adamdighi', 'Shibganj'],
+    'Rajshahi': ['Boalia', 'Motihar', 'Rajpara', 'Shah Makdum', 'Paba', 'Godagari', 'Tanore', 'Bagmara'],
+    'Chattogram': ['Pahartali', 'Patenga', 'Hathazari', 'Kotwali', 'Sitakunda', 'Patiya', 'Anwara'],
+    'Sylhet': ['Sadar', 'Beanibazar', 'Golapganj', 'Fenchuganj', 'Balaganj'],
   };
 
-  // মডেল সিগন্যাল (Two-way Binding)
   selectedDivision = model('All');
   selectedDistrict = model('All');
   selectedThana = model('All');
   selectedProfession = model('All');
 
-  // বিভাগ বদলালে জেলা ফিল্টার হবে
   filteredDistricts = computed(() => {
     const division = this.selectedDivision();
     if (division === 'All') return [];
-    return this.allDistricts[division as keyof typeof this.allDistricts] || [];
+    return this.allDistricts[division] || [];
   });
 
-  // জেলা বদলালে থানা ফিল্টার হবে
   filteredThanas = computed(() => {
     const district = this.selectedDistrict();
     if (district === 'All') return [];
-    return this.allThanas[district] || [];
+    // এখানে জেলা অনুযায়ী থানা রিটার্ন করবে
+    return this.allThanas[district] || []; 
   });
 
-  // ইভেন্ট হ্যান্ডলার (বিভাগ বদলালে নিচেরগুলো All হয়ে যাবে)
   onDivisionChange() {
     this.selectedDistrict.set('All');
     this.selectedThana.set('All');
   }
 
-  // জেলা বদলালে থানা All হয়ে যাবে
   onDistrictChange() {
     this.selectedThana.set('All');
   }
