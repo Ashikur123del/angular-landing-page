@@ -7,5 +7,5 @@ import { Component, input, Input } from '@angular/core';
 })
 export class Featuress {
     bgImage = input<string>('future.png');
-  @Input() minHeight: string = '70vh';
+    @Input() minHeight: string = '70vh';
 }
