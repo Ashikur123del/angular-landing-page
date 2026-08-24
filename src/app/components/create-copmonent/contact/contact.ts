@@ -51,7 +51,6 @@ export class Contact {
   filteredThanas = computed(() => {
     const district = this.selectedDistrict();
     if (district === 'All') return [];
-    // এখানে জেলা অনুযায়ী থানা রিটার্ন করবে
     return this.allThanas[district] || []; 
   });
 

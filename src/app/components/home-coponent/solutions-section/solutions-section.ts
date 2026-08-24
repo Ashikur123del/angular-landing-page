@@ -1,4 +1,5 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { register } from 'swiper/element/bundle';
 
 register();
@@ -12,21 +13,57 @@ interface Solution {
 @Component({
   selector: 'app-solutions-section',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './solutions-section.html',
   styleUrl: './solutions-section.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SolutionsSection {
-
+export class SolutionsSection implements AfterViewInit {
   @ViewChild('swiperRef') swiperRef!: ElementRef;
+  isBrowser: boolean;
 
-  slideNext(swiperEl: any) {
-    swiperEl.swiper.slideNext();
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
-  slidePrev(swiperEl: any) {
-    swiperEl.swiper.slidePrev();
+  ngAfterViewInit() {
+    if (this.isBrowser && this.swiperRef?.nativeElement) {
+      const swiperEl = this.swiperRef.nativeElement;
+      
+      // Swiper সেটিংস অবজেক্ট আকারে পাস করা
+      const swiperParams = {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        pagination: { clickable: true },
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 3 }
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        }
+      };
+
+      Object.assign(swiperEl, swiperParams);
+
+      if (typeof swiperEl.initialize === 'function') {
+        swiperEl.initialize();
+      }
+    }
+  }
+
+  slideNext() {
+    if (this.swiperRef?.nativeElement?.swiper) {
+      this.swiperRef.nativeElement.swiper.slideNext();
+    }
+  }
+
+  slidePrev() {
+    if (this.swiperRef?.nativeElement?.swiper) {
+      this.swiperRef.nativeElement.swiper.slidePrev();
+    }
   }
 
   solutions: Solution[] = [
@@ -64,13 +101,13 @@ export class SolutionsSection {
       ]
     },
     {
-      icon: 'fas fa-file-alt', // আইকন পরিবর্তন করা হয়েছে
+      icon: 'fas fa-file-alt',
       title: 'অটোমেটেড রেজাল্ট সিস্টেম',
       points: [
         'মার্কশিট ও প্রগ্রেস রিপোর্ট জেনারেশন',
         'অটোমেটেড জিপিএ ক্যালকুলেশন',
         'প্যারেন্টস অ্যাপে রেজাল্ট পাবলিশ',
-        'সহজে ইনপুট দেওয়ার ব্যবস্থা',
+        'সহজে ইনপুট দেওয়ার ব্যবস্থা',
         'মেধা তালিকা তৈরি করা'
       ]
     }

@@ -11,8 +11,6 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 export class Navbar {
   isDemoOpen = signal(false);
   isMobileMenuOpen = signal(false);
-
-  // ডাটা স্ট্রাকচার: children থাকলে সেটি ড্রপডাউন মেনু 
   navItems = signal([
     { label: 'হোম', link: '', active: true },
     { label: 'ফিচারস', link: '/future', active: false },

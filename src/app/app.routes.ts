@@ -69,3 +69,4 @@ export const routes: Routes = [
     // ওয়াইল্ডকার্ড রাউট সবার নিচে থাকবে
     { path: '**', redirectTo: '' }
 ];
+

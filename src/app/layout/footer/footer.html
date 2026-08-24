@@ -1,14 +1,16 @@
 <footer class="pt-16 font-sans text-white border-t copyright-gradient">
   <div class="container mx-auto px-6 lg:px-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12">
     
-    <div class="">
+    <!-- About Section -->
+    <div>
       <img [src]="data.about.logo" alt="Eduman" class="h-20"> 
       <p class="text-[14px] leading-relaxed text-white font-bold text-justify opacity-90 mt-6">
         {{ data.about.description }}
       </p>
-      <div class="flex space-x-3">
+      <div class="flex space-x-3 mt-6">
         @for (social of data.about.socials; track social.platform) {
           <a [href]="social.link" 
+             target="_blank"
              class="w-9 h-9 flex items-center justify-center rounded-lg text-white text-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {{social.bgColor}} border border-white/20">
             <i [class]="social.icon"></i>
           </a>
@@ -16,17 +18,19 @@
       </div>
     </div>
 
+    <!-- Dynamic Sections (Links) -->
     @for (section of data.sections; track section.title) {
       <div>
         <h3 class="font-black text-[17px] mb-7 text-white tracking-tight border-l-4 border-blue-500 pl-3">
           {{ section.title }}
         </h3>
         <ul class="space-y-4">
-          @for (link of section.links; track link) {
+          @for (link of section.links; track link.name) {
             <li>
-              <a href="#" class="text-[14px] font-bold text-white/80 hover:text-white transition-all duration-300 flex items-center group">
+              <!-- এখানে href="#" এর পরিবর্তে [routerLink]="link.path" দিতে পারেন, এবং {{ link.name }} দিতে হবে -->
+              <a [routerLink]="link.path" class="text-[14px] font-bold text-white/80 hover:text-white transition-all duration-300 flex items-center group">
                 <i class="fas fa-chevron-right mr-3 text-[10px] text-blue-400 group-hover:translate-x-1 transition-transform"></i>
-                {{ link }}
+                {{ link.name }}
               </a>
             </li>
           }
@@ -34,6 +38,7 @@
       </div>
     }
 
+    <!-- Contact & Legal -->
     <div class="text-[14px]">
       <h3 class="font-black text-[17px] mb-7 text-white tracking-tight border-l-4 border-blue-500 pl-3">
         {{ data.contact.title }}
@@ -70,6 +75,7 @@
 
   </div>
 
+  <!-- Copyright -->
   <div class="bg-black/20 py-6 text-center shadow-lg border-t border-white/5">
     <p class="text-white text-[13px] font-black tracking-wider uppercase">
       {{ data.copyright }}

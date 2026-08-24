@@ -6,10 +6,11 @@ import { SupportDesk } from "../support-desk/support-desk";
 import { EdumanCustomerSupport } from "../eduman-customer-support/eduman-customer-support";
 import { SupportFaq } from "../support-faq/support-faq";
 import { SlideLogoItem } from "../../Pricing-coponent/slide-logo-item/slide-logo-item";
+import { VideoShowcaseSection } from "../../home-coponent/video-showcase-section/video-showcase-section";
 
 @Component({
   selector: 'app-supports',
-  imports: [ShareVideoDemo, RouterLink, SupprotsAIHelpDesk, SupportDesk, EdumanCustomerSupport, SupportFaq, SlideLogoItem],
+  imports: [ShareVideoDemo, RouterLink, SupprotsAIHelpDesk, SupportDesk, EdumanCustomerSupport, SupportFaq, SlideLogoItem, VideoShowcaseSection],
   templateUrl: './supports.html',
   styleUrl: './supports.css',
 })
